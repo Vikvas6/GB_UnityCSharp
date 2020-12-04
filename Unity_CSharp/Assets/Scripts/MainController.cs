@@ -71,6 +71,7 @@ namespace GeekbrainsUnityCSharp
 
         public void RestartGame()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(0);
         }
         public void Pause()
