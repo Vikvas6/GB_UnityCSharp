@@ -1,9 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - GeekbrainsUnityCSharp.BonusHolder
-    - GeekbrainsUnityCSharp.CameraController
     - GeekbrainsUnityCSharp.EndBonus
+    - GeekbrainsUnityCSharp.MainController
     - GeekbrainsUnityCSharp.PlayerBall
     - GeekbrainsUnityCSharp.SpeedBonus
     Unity.Rider.Editor.dll:
@@ -21,8 +20,10 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -63,21 +64,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11312}
+      Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11740}
+      Script: {instanceID: 11354}
     - Class: 114
-      Script: {instanceID: 12050}
+      Script: {instanceID: 11744}
     - Class: 114
-      Script: {instanceID: 12320}
+      Script: {instanceID: 11972}
     - Class: 114
-      Script: {instanceID: 12536}
+      Script: {instanceID: 12124}
     - Class: 114
-      Script: {instanceID: 12586}
+      Script: {instanceID: 12326}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 12948}
+      Script: {instanceID: 12606}
+    - Class: 114
+      Script: {instanceID: 12954}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -87,6 +90,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -219,12 +224,6 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 13f8f373b951cbaf0f891949929b196a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GeekbrainsUnityCSharp
-    className: Player
-  - hash:
-      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -315,6 +314,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 695c6a63d0eaacba5f53ba5bb7d4ba79
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: MainController
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -325,12 +330,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
-  - hash:
-      serializedVersion: 2
-      Hash: f421ea26e81d8ff9f7f497d7da5f99a0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GeekbrainsUnityCSharp
-    className: CameraController
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -415,12 +414,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
-  - hash:
-      serializedVersion: 2
-      Hash: c12913ac3ff8ea2bdaa58eb1ba18a4ef
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GeekbrainsUnityCSharp
-    className: BonusHolder
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -556,4 +549,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Builds/Lesson3HW/Unity_CSharp.exe
+  playerPath: F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Builds/Lesson4HW/Unity_CSharp.exe
