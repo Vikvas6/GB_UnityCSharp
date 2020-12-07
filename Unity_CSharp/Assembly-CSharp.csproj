@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IAction.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IUpdatable.cs" />
+    <Compile Include="Assets\Scripts\Lesson5HWMB.cs" />
     <Compile Include="Assets\Scripts\MainController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBall.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBase.cs" />
