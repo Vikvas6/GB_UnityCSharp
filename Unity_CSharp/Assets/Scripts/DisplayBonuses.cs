@@ -17,7 +17,7 @@ namespace GeekbrainsUnityCSharp
 
         public DisplayBonuses()
         {
-            _text = Object.FindObjectOfType<Text>();
+            _text = GameObject.FindGameObjectWithTag("StatusText").GetComponent<Text>();
         }
 
         #endregion

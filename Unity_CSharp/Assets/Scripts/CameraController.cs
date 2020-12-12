@@ -3,42 +3,53 @@
 
 namespace GeekbrainsUnityCSharp
 {
-    public sealed class CameraController : MonoBehaviour
+    public sealed class CameraController : IUpdatable
     {
-        public Player Player;
+
+        #region Fields
         
+        private Transform _player;
+        private Transform _mainCamera;
         private Vector3 _offset;
 
         // https://gist.github.com/ftvs/5822103
         // How long the object should shake for.
         public float shakeDuration = 0f;
-
         // Amplitude of the shake. A larger value shakes the camera harder.
         public float shakeAmount = 0.2f;
         public float decreaseFactor = 1.0f;
 
-        #region UnityMethods
+        #endregion
 
-        private void Start()
+        #region Constructor
+
+        public CameraController(MainController mainController, Transform player, Transform mainCamera)
         {
-            _offset = transform.position - Player.transform.position;
-            Player.GetComponent<BonusHolder>().PickUpBonusEvent += Shake;
+            this._player = player;
+            this._mainCamera = mainCamera;
+            this._mainCamera.LookAt(_player);
+            _offset = mainCamera.position - player.position;
+            mainController.PickUpBonusEvent += Shake;
         }
 
-        private void LateUpdate()
+        #endregion
+
+        #region IUpdatable
+
+        public void UpdateTick()
         {
-            var notShakedPos = Player.transform.position + _offset;
+            var notShakedPos = _player.position + _offset;
 
             if (shakeDuration > 0)
             {
-                transform.localPosition = notShakedPos + Random.insideUnitSphere * shakeAmount;
+                _mainCamera.localPosition = notShakedPos + Random.insideUnitSphere * shakeAmount;
 
                 shakeDuration -= Time.deltaTime * decreaseFactor;
             }
             else
             {
                 shakeDuration = 0f;
-                transform.localPosition = notShakedPos;
+                _mainCamera.localPosition = notShakedPos;
             }
         }
 
