@@ -10,6 +10,11 @@
             DisplayBonus($"Найдено ключей: {_intetactiveController.AddEndBonus()}");
         }
 
+        public override string GetBonusType()
+        {
+            return "EndBonus";
+        }
+
         #endregion
     }
 }

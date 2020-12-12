@@ -13,6 +13,20 @@ namespace GeekbrainsUnityCSharp
 
         #endregion
 
+        #region Constructor
+
+        public SpeedBonus()
+        {
+            _speedUp = true;
+        }
+
+        public SpeedBonus(bool speedUp)
+        {
+            _speedUp = speedUp;
+        }
+
+        #endregion
+
         #region Methods
 
         protected override void Interact()
@@ -26,6 +40,18 @@ namespace GeekbrainsUnityCSharp
             {
                 _intetactiveController.AddSpeedPenalty();
                 DisplayBonus($"Вы замедлены =(");
+            }
+        }
+
+        public override string GetBonusType()
+        {
+            if (_speedUp)
+            {
+                return "SpeedBonus";
+            }
+            else
+            {
+                return "SpeedPenalty";
             }
         }
 
