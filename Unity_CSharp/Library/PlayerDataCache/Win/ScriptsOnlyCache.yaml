@@ -3,7 +3,9 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - GeekbrainsUnityCSharp.EndBonus
     - GeekbrainsUnityCSharp.MainController
+    - GeekbrainsUnityCSharp.MakeRadarObject
     - GeekbrainsUnityCSharp.PlayerBall
+    - GeekbrainsUnityCSharp.Radar
     - GeekbrainsUnityCSharp.SpeedBonus
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -24,6 +26,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -53,6 +57,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -62,25 +68,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11310}
     - Class: 114
-      Script: {instanceID: 11314}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11354}
+      Script: {instanceID: 11402}
     - Class: 114
-      Script: {instanceID: 11744}
+      Script: {instanceID: 11472}
     - Class: 114
-      Script: {instanceID: 11972}
+      Script: {instanceID: 11652}
     - Class: 114
-      Script: {instanceID: 12124}
+      Script: {instanceID: 11740}
     - Class: 114
-      Script: {instanceID: 12326}
+      Script: {instanceID: 11974}
     - Class: 114
-      Script: {instanceID: 12592}
+      Script: {instanceID: 12126}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12148}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 12474}
+    - Class: 114
+      Script: {instanceID: 12552}
+    - Class: 114
+      Script: {instanceID: 12610}
+    - Class: 114
+      Script: {instanceID: 12940}
+    - Class: 114
+      Script: {instanceID: 12970}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -132,12 +146,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GeekbrainsUnityCSharp
-    className: EndBonus
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -194,6 +202,12 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
+      Hash: 74e775d066e299fb05a1f2663b1adc39
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: SpeedBonus
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -222,6 +236,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: EndBonus
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -314,7 +334,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 695c6a63d0eaacba5f53ba5bb7d4ba79
+      Hash: 11a5bed6649cf7780bc4393ede16a6c2
     assemblyName: Assembly-CSharp.dll
     namespaceName: GeekbrainsUnityCSharp
     className: MainController
@@ -368,12 +388,6 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 74e775d066e299fb05a1f2663b1adc39
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GeekbrainsUnityCSharp
-    className: SpeedBonus
-  - hash:
-      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -410,22 +424,28 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: cccd12524672b16c011a38cbf4daa3db
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: MakeRadarObject
+  - hash:
+      serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: Radar
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 13f8f373b951cbaf0f891949929b196a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GeekbrainsUnityCSharp
-    className: PlayerBall
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -444,6 +464,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Lesson5HWMB
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -492,6 +518,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
+  - hash:
+      serializedVersion: 2
+      Hash: 13f8f373b951cbaf0f891949929b196a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: PlayerBall
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -549,4 +581,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Builds/Lesson4HW/Unity_CSharp.exe
+  playerPath: F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Builds/Lesson6HW/Unity_CSharp.exe

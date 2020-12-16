@@ -1,4 +1,6 @@
-﻿namespace GeekbrainsUnityCSharp
+﻿using UnityEngine;
+
+namespace GeekbrainsUnityCSharp
 {
     public class IntetactiveController
     {
@@ -7,10 +9,12 @@
 
         private PlayerBase _player;
         private MainController _mainController;
+        private static IntetactiveController _singleton;
 
         private int _speedBonusTime;
         private int _endBonusesToWin;
         private int _endBonusesCount = 0;
+
 
         #endregion
 
@@ -22,11 +26,18 @@
             this._speedBonusTime = speedBonusTime;
             this._endBonusesToWin = endBonusesToWin;
             this._player = player;
+
+            _singleton = this;
         }
 
         #endregion
 
         #region Methods
+
+        public static IntetactiveController GetInstance()
+        {
+            return _singleton;
+        }
 
         public void AddBonusCommon(string bonusType)
         {
@@ -35,6 +46,7 @@
 
         public int AddEndBonus()
         {
+            Debug.Log("asdf");
             AddBonusCommon("EndBonus");
             _endBonusesCount++;
             if (_endBonusesCount >= _endBonusesToWin)
