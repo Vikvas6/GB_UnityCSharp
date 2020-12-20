@@ -7,25 +7,20 @@ namespace GeekbrainsUnityCSharp
 
         #region Fields
 
-        private PlayerBase _player;
         private MainController _mainController;
         private static IntetactiveController _singleton;
 
         private int _speedBonusTime;
-        private int _endBonusesToWin;
-        private int _endBonusesCount = 0;
 
 
         #endregion
 
         #region Contructor
 
-        public IntetactiveController(MainController mainController, int speedBonusTime, int endBonusesToWin, PlayerBase player)
+        public IntetactiveController(MainController mainController, int speedBonusTime, int endBonusesToWin)
         {
             this._mainController = mainController;
             this._speedBonusTime = speedBonusTime;
-            this._endBonusesToWin = endBonusesToWin;
-            this._player = player;
 
             _singleton = this;
         }
@@ -46,26 +41,20 @@ namespace GeekbrainsUnityCSharp
 
         public int AddEndBonus()
         {
-            Debug.Log("asdf");
-            AddBonusCommon("EndBonus");
-            _endBonusesCount++;
-            if (_endBonusesCount >= _endBonusesToWin)
-            {
-                _mainController.GameEndVictory();
-            }
-            return _endBonusesCount;
+            AddBonusCommon("EndBonus");            
+            return _mainController.AddEndBonus();
         }
 
         public void AddSpeedBonus()
         {
             AddBonusCommon("SpeedBonus");
-            _player.AddSpeedBonus(_speedBonusTime);
+            _mainController.AddSpeedBonus(_speedBonusTime);
         }
 
         public void AddSpeedPenalty()
         {
             AddBonusCommon("SpeedPenalty");
-            _player.AddSpeedPenalty(_speedBonusTime);
+            _mainController.AddSpeedPenalty(_speedBonusTime);
         }
 
         #endregion

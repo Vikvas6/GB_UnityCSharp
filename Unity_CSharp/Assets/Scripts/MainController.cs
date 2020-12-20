@@ -12,20 +12,20 @@ namespace GeekbrainsUnityCSharp
         public delegate void PickUpBonus(string bonusType);
         public event PickUpBonus PickUpBonusEvent;
 
-        [SerializeField] private GameObject _mainMenu;
-        [SerializeField] private GameObject _victoryMenu;
-        [SerializeField] private GameObject _endBonusPrefab;
-        [SerializeField] private GameObject _speedBonusPrefab;
-        [SerializeField] private GameObject _speedPenaltyPrefab;
-        [SerializeField] private RenderTexture _screenShot;
+        [SerializeField] private GameObject _mainMenu = null;
+        [SerializeField] private GameObject _victoryMenu = null;
+        [SerializeField] private GameObject _endBonusPrefab = null;
+        [SerializeField] private GameObject _speedBonusPrefab = null;
+        [SerializeField] private GameObject _speedPenaltyPrefab = null;
+        [SerializeField] private RenderTexture _screenShot = null;
+        [SerializeField] private int _endBonusesToWin = 5;
 
         private List<IUpdatable> _updatables = new List<IUpdatable>();
         private GameEndController _gameEndController;
         private GameObject _statusText;
         private PlayerBall _player;
-        private SaveDataRepo _repo;
         private Camera _mainCamera;
-        private bool _onPause = false;
+        private bool _onPause = false;        
 
         #endregion
 
@@ -38,11 +38,10 @@ namespace GeekbrainsUnityCSharp
 
             var interactiveObjects = Object.FindObjectsOfType<InteractiveObject>();
 
-            new InitializerController(this, _player, Camera.main, interactiveObjects);
+            new InitializerController(this, _player, Camera.main, interactiveObjects, _endBonusPrefab, _speedBonusPrefab, _speedPenaltyPrefab);
 
-            _gameEndController = new GameEndController();
+            _gameEndController = new GameEndController(this._endBonusesToWin);
             _statusText = GameObject.FindGameObjectWithTag("StatusText");
-            _repo = new SaveDataRepo();
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             _screenShot.Release();
             RenderTexture.active = _screenShot;
@@ -58,16 +57,6 @@ namespace GeekbrainsUnityCSharp
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Pause();
-            }
-
-            if (Input.GetKeyDown(KeyCode.F5))
-            {
-                _repo.Save(_player, FindObjectsOfType<InteractiveObject>());
-            }
-
-            if (Input.GetKeyDown(KeyCode.F6))
-            {
-                _repo.Load(_player, FindObjectsOfType<InteractiveObject>(), _endBonusPrefab, _speedBonusPrefab, _speedPenaltyPrefab);
             }
 
             if (Input.GetKeyDown(KeyCode.F7))
@@ -127,6 +116,26 @@ namespace GeekbrainsUnityCSharp
             _victoryMenu.SetActive(true);
             _mainMenu.SetActive(false);
             Time.timeScale = 0;
+        }
+
+        public void AddSpeedBonus(float timer)
+        {
+            _player.AddSpeedBonus(timer);
+        }
+
+        public void AddSpeedPenalty(float timer)
+        {
+            _player.AddSpeedPenalty(timer);
+        }
+
+        public int AddEndBonus()
+        {
+            (bool isVictory, int endBonusesCount) = _gameEndController.AddEndBonus();
+            if (isVictory)
+            {
+                GameEndVictory();
+            }
+            return endBonusesCount;
         }
 
         #endregion

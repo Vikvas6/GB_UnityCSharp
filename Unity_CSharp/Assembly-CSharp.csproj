@@ -64,10 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\DisplayBonuses.cs" />
+    <Compile Include="Assets\Scripts\EditorExt\ObjectsCreator.cs" />
     <Compile Include="Assets\Scripts\Exceptions\OutOfMazeException.cs" />
     <Compile Include="Assets\Scripts\GameEndController.cs" />
     <Compile Include="Assets\Scripts\InitializerController.cs" />
+    <Compile Include="Assets\Scripts\InteractiveObject\DisplayBonuses.cs" />
     <Compile Include="Assets\Scripts\InteractiveObject\EndBonus.cs" />
     <Compile Include="Assets\Scripts\InteractiveObject\GoodBonus.cs" />
     <Compile Include="Assets\Scripts\InteractiveObject\InteractiveObject.cs" />
@@ -76,18 +77,16 @@
     <Compile Include="Assets\Scripts\Interfaces\IAction.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IUpdatable.cs" />
-    <Compile Include="Assets\Scripts\Lesson5HWMB.cs" />
     <Compile Include="Assets\Scripts\MainController.cs" />
-    <Compile Include="Assets\Scripts\MakeRadarObject.cs" />
-    <Compile Include="Assets\Scripts\ObjectsCreator.cs" />
-    <Compile Include="Assets\Scripts\ObjectsCreatorExt.cs" />
+    <Compile Include="Assets\Scripts\Minimap\MakeRadarObject.cs" />
+    <Compile Include="Assets\Scripts\Minimap\Radar.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBall.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBase.cs" />
-    <Compile Include="Assets\Scripts\Radar.cs" />
     <Compile Include="Assets\Scripts\State\DataCrypto.cs" />
     <Compile Include="Assets\Scripts\State\IData.cs" />
     <Compile Include="Assets\Scripts\State\JSONSaver.cs" />
     <Compile Include="Assets\Scripts\State\SaveDataRepo.cs" />
+    <Compile Include="Assets\Scripts\State\SaveLoadController.cs" />
     <Compile Include="Assets\Scripts\State\StateData.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

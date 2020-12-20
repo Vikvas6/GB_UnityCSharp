@@ -66,35 +66,35 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11310}
+      Script: {instanceID: 11312}
     - Class: 114
-      Script: {instanceID: 11350}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11402}
+      Script: {instanceID: 11404}
     - Class: 114
-      Script: {instanceID: 11472}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11652}
+      Script: {instanceID: 11654}
     - Class: 114
-      Script: {instanceID: 11740}
+      Script: {instanceID: 11742}
     - Class: 114
-      Script: {instanceID: 11974}
+      Script: {instanceID: 11978}
     - Class: 114
-      Script: {instanceID: 12126}
+      Script: {instanceID: 12130}
     - Class: 114
-      Script: {instanceID: 12148}
+      Script: {instanceID: 12152}
     - Class: 114
-      Script: {instanceID: 12474}
+      Script: {instanceID: 12482}
     - Class: 114
-      Script: {instanceID: 12552}
+      Script: {instanceID: 12560}
     - Class: 114
-      Script: {instanceID: 12610}
+      Script: {instanceID: 12618}
     - Class: 114
-      Script: {instanceID: 12940}
+      Script: {instanceID: 12948}
     - Class: 114
-      Script: {instanceID: 12970}
+      Script: {instanceID: 12978}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -334,7 +334,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 11a5bed6649cf7780bc4393ede16a6c2
+      Hash: 4e9b2a69f51883d6e221fd667c198992
     assemblyName: Assembly-CSharp.dll
     namespaceName: GeekbrainsUnityCSharp
     className: MainController
@@ -418,6 +418,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 8395f16e0c7c654555f9b2c785334575
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GeekbrainsUnityCSharp
+    className: ObjectsCreator
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -464,12 +470,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Lesson5HWMB
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -581,4 +581,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Builds/Lesson6HW/Unity_CSharp.exe
+  playerPath: F:/UnityProjects/GB/GB_UnityCSharp/Unity_CSharp/Builds/Lesson8HW/Unity_CSharp.exe
