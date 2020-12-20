@@ -12,13 +12,20 @@ namespace GeekbrainsUnityCSharp
         public delegate void PickUpBonus(string bonusType);
         public event PickUpBonus PickUpBonusEvent;
 
-        [SerializeField] private GameObject _mainMenu;
-        [SerializeField] private GameObject _victoryMenu;
+        [SerializeField] private GameObject _mainMenu = null;
+        [SerializeField] private GameObject _victoryMenu = null;
+        [SerializeField] private GameObject _endBonusPrefab = null;
+        [SerializeField] private GameObject _speedBonusPrefab = null;
+        [SerializeField] private GameObject _speedPenaltyPrefab = null;
+        [SerializeField] private RenderTexture _screenShot = null;
+        [SerializeField] private int _endBonusesToWin = 5;
 
         private List<IUpdatable> _updatables = new List<IUpdatable>();
         private GameEndController _gameEndController;
         private GameObject _statusText;
-        private bool _onPause = false;
+        private PlayerBall _player;
+        private Camera _mainCamera;
+        private bool _onPause = false;        
 
         #endregion
 
@@ -26,15 +33,18 @@ namespace GeekbrainsUnityCSharp
 
         private void Start()
         {
-            var player = FindObjectOfType<PlayerBall>();
-            AddUpdatable(player);
+            this._player = FindObjectOfType<PlayerBall>();
+            AddUpdatable(_player);
 
             var interactiveObjects = Object.FindObjectsOfType<InteractiveObject>();
 
-            new InitializerController(this, player, Camera.main, interactiveObjects);
+            new InitializerController(this, _player, Camera.main, interactiveObjects, _endBonusPrefab, _speedBonusPrefab, _speedPenaltyPrefab);
 
-            _gameEndController = new GameEndController();
+            _gameEndController = new GameEndController(this._endBonusesToWin);
             _statusText = GameObject.FindGameObjectWithTag("StatusText");
+            _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            _screenShot.Release();
+            RenderTexture.active = _screenShot;
         }
 
         private void Update()
@@ -48,6 +58,14 @@ namespace GeekbrainsUnityCSharp
             {
                 Pause();
             }
+
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                _mainCamera.targetTexture = _screenShot;
+                _mainCamera.Render();
+                _mainCamera.targetTexture = null;
+            }
+
         }
 
         #endregion
@@ -98,6 +116,26 @@ namespace GeekbrainsUnityCSharp
             _victoryMenu.SetActive(true);
             _mainMenu.SetActive(false);
             Time.timeScale = 0;
+        }
+
+        public void AddSpeedBonus(float timer)
+        {
+            _player.AddSpeedBonus(timer);
+        }
+
+        public void AddSpeedPenalty(float timer)
+        {
+            _player.AddSpeedPenalty(timer);
+        }
+
+        public int AddEndBonus()
+        {
+            (bool isVictory, int endBonusesCount) = _gameEndController.AddEndBonus();
+            if (isVictory)
+            {
+                GameEndVictory();
+            }
+            return endBonusesCount;
         }
 
         #endregion

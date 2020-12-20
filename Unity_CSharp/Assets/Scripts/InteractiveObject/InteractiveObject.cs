@@ -59,6 +59,8 @@ namespace GeekbrainsUnityCSharp
             this._intetactiveController = intetactiveController;
         }
 
+        public abstract string GetBonusType();
+
         #endregion
 
     }
